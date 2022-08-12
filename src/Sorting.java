@@ -13,10 +13,19 @@ public class Sorting {
             }
         }
     }
+    public static void merge(int[] arr, int n, int m) {
+        if(m-n<=0) return;
+
+
+    }
     public static void mergeSort(int[] arr, int n, int m) {
         int mid = (n+m)/2;
-        int a=n, b=mid+1;
-
+        if(m-n<=0) return;
+        else if(m-n>1) {
+            mergeSort(arr, n, mid);
+            mergeSort(arr, mid+1, m);
+        }
+        merge(arr, n, m);
     }
 
     public static void main(String[] args) {
