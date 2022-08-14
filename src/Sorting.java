@@ -1,44 +1,18 @@
 import java.util.Scanner;
+import Sorts.*;
 public class Sorting {
     //Simple implementation of bubbleSort
     public static void bubbleSort(int [] a, int n) {
-        int t;
-        for(int i=n-1; i>=0; i--) {
-            for(int j=0; j<=i-1; j++) {
-                if(a[j]>a[j+1]) {
-                    t= a[j];
-                    a[j] = a[j+1];
-                    a[j+1] = t;
-                }
-            }
-        }
+        BubbleSort.bubbleSort(a, n);
     }
     // Simple implementation of insertionSort
     public static void insertionSort(int []a, int n) {
-        int t,j;
-        for(int i=0; i<n-1; i++) {
-            j=i;
-            while(j>0 && a[j-1] > a[j]) {
-                t=a[j];
-                a[j] = a[j-1];
-                a[j-1] = t;
-                j--;
-            }
-        }
+        InsertionSort.insertionSort(a, n);
     }
-    public static void merge(int[] arr, int n, int m) {
-        if(m-n<=0) return;
 
-
-    }
-    public static void mergeSort(int[] arr, int n, int m) {
-        int mid = (n+m)/2;
-        if(m-n<=0) return;
-        else if(m-n>1) {
-            mergeSort(arr, n, mid);
-            mergeSort(arr, mid+1, m);
-        }
-        merge(arr, n, m);
+    //Implementation of Merge Sort
+     public static void mergeSort(int[] arr, int n, int m) {
+        MergeSort.mergeSort(arr, n, m);
     }
 
     public static void main(String[] args) {
@@ -53,7 +27,8 @@ public class Sorting {
         }
         sc.close();
         //bubbleSort(arr, n);
-        insertionSort(arr, n);
+        //insertionSort(arr, n);
+        mergeSort(arr,0,n-1);
         for(int i=0;i<n; i++) {
             System.out.println(arr[i]);
         }
