@@ -13,6 +13,19 @@ public class Sorting {
             }
         }
     }
+    // Simple implementation of insertionSort
+    public static void insertionSort(int []a, int n) {
+        int t,j;
+        for(int i=0; i<n-1; i++) {
+            j=i;
+            while(j>0 && a[j-1] > a[j]) {
+                t=a[j];
+                a[j] = a[j-1];
+                a[j-1] = t;
+                j--;
+            }
+        }
+    }
     public static void merge(int[] arr, int n, int m) {
         if(m-n<=0) return;
 
@@ -39,7 +52,8 @@ public class Sorting {
             arr[i] = sc.nextInt();
         }
         sc.close();
-        bubbleSort(arr, n);
+        //bubbleSort(arr, n);
+        insertionSort(arr, n);
         for(int i=0;i<n; i++) {
             System.out.println(arr[i]);
         }
