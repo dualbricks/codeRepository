@@ -14,6 +14,16 @@ public class Sorting {
      public static void mergeSort(int[] arr, int n, int m) {
         MergeSort.mergeSort(arr, n, m);
     }
+    public static void quickSort(int[]arr, int n, int m) {
+        QuickSort.quickSort(arr,n,m);
+    }
+
+    // For printing array
+    private static void  printArray(int[] arr) {
+        for(int i =0; i<= arr.length-1; i++) {
+            System.out.println(arr[i]);
+        }
+    }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -28,10 +38,9 @@ public class Sorting {
         sc.close();
         //bubbleSort(arr, n);
         //insertionSort(arr, n);
-        mergeSort(arr,0,n-1);
-        for(int i=0;i<n; i++) {
-            System.out.println(arr[i]);
-        }
+        //mergeSort(arr,0,arr.length-1);
+        quickSort(arr, 0, arr.length-1);
+        printArray(arr);
 
     }
 }

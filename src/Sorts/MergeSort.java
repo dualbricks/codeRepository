@@ -2,7 +2,7 @@ package Sorts;
 
 public class MergeSort {
     // Helper functions for mergeSort
-    static void  merge(int[] arr, int n, int m) {
+    private static void  merge(int[] arr, int n, int m) {
         int mid = (n+m)/2;
         int a=n, b=mid+1;
         int temp, cmp,i;
@@ -32,8 +32,11 @@ public class MergeSort {
 
 
     }
-    static int compare(int a, int b) {
+    private static int compare(int a, int b) {
         return Integer.compare(a, b);
+    }
+    public static void mergeSort(int[] arr) {
+        mergeSort(arr, 0, arr.length-1);
     }
 
     public static void mergeSort(int[] arr, int n, int m) {
