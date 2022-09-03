@@ -39,7 +39,9 @@ public class Sorting {
         //bubbleSort(arr, n);
         //insertionSort(arr, n);
         //mergeSort(arr,0,arr.length-1);
-        quickSort(arr, 0, arr.length-1);
+        //quickSort(arr, 0, arr.length-1);
+        HeapSort ob = new HeapSort();
+        ob.sort(arr);
         printArray(arr);
 
     }
