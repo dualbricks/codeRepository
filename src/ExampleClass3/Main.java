@@ -7,16 +7,16 @@ public class Main {
         DPKnapSack dp = ks.getDpKnapSack();
         RecursiveKnapSack rks = ks.getRecursiveKnapSack();
         int C = ks.getC();
-        dp.P();
+        dp.P2(C);
 
 
         long startTime1 = System.nanoTime();
-        int dpMax = dp.P();
+        int dpMax = dp.P2(C);
         long timeTaken1 = System.nanoTime() - startTime1;
         System.out.println("DP: ");
         System.out.println("Max Profit: "+ dpMax);
         System.out.println("Time taken: "+timeTaken1/1000+"ms");
-
+        dp.printDPArray();
 
         long startTime2 = System.nanoTime();
         int recursiveMax = rks.P(C);

@@ -5,11 +5,31 @@ public class DPKnapSack {
     private final int[] profit;
     private final int[] weights;
 
+    private int[] DPArray;
 
     public DPKnapSack(int C, int[] profit, int[] weights) {
         this.C = C;
         this.profit = profit;
         this.weights = weights;
+    }
+
+    public void printDPArray(int[][] dp) {
+        StringBuilder sb  = new StringBuilder();
+        sb.append("--------------------\n");
+        for(int[] row : dp ) {
+            for(int price : row) {
+                sb.append("|").append(price).append("|");
+            }
+            sb.append("\n");
+        }
+        System.out.println(sb.toString());
+    }
+    public void printDPArray() {
+        StringBuilder sb =new StringBuilder();
+        for(int profit: this.DPArray) {
+            sb.append("|").append(profit).append("|");
+        }
+        System.out.println(sb.toString());
     }
 
     public int P() {
@@ -31,6 +51,21 @@ public class DPKnapSack {
                 }
             }
         }
+        //printDPArray(dp);
         return dp[n][C];
+    }
+
+    public int P2(int C) {
+        int[] dp = new int[C+1];
+
+        for(int i = 0; i <= C; i++) {
+            for(int j =0; j < weights.length; j++) {
+                if(weights[j] <= i) {
+                    dp[i] = Math.max(dp[i], dp[i- weights[j]] + profit[j]);
+                }
+            }
+        }
+        this.DPArray = dp;
+        return dp[C];
     }
 }
